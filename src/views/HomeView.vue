@@ -1,24 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" class="logo mt-2" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div
+    class="
+      vw-100
+      min-vh-100
+      d-flex
+      justify-content-center
+      align-items-center
+      home
+    "
+  >
+    <div class="container">
+      <div class="p-2 home__card">
+        <div class="row">
+          <div class="col-6 d-flex flex-column">
+            <img alt="Rotation Logo" src="../assets/rotation.png">
+          </div>
+          <div class="col-6">Welcome</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { Options, Vue } from "vue-class-component";
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
+@Options({})
 export default class HomeView extends Vue {}
 </script>
 
 <style lang="scss">
-.logo {
-  background-color: $color;
+.home {
+  background-color: $color-home-bg;
+
+  &__card {
+    background-color: $color-white;
+    border-radius: $radius;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+  }
 }
 </style>
