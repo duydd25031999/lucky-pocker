@@ -1,5 +1,11 @@
-const { defineConfig } = require('@vue/cli-service');
+const { defineConfig } = require("@vue/cli-service");
+
 module.exports = defineConfig({
+  pages: {
+    index: {
+      title: "Lucky Pocker",
+    }
+  },
   transpileDependencies: true,
   css: {
     loaderOptions: {
