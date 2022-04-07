@@ -4,6 +4,7 @@ module.exports = defineConfig({
   pages: {
     index: {
       title: "Lucky Pocker",
+      entry: "src/main.ts"
     }
   },
   transpileDependencies: true,
