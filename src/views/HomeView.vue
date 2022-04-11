@@ -17,7 +17,7 @@
 
             <div class="form-group">
               <label for="nameInput">Join Name</label>
-              
+
               <div class="mt-2 w-100 home__input">
                 <input class="w-100 p-2" name="" id="nameInput" />
               </div>
@@ -28,7 +28,7 @@
 
             <div class="form-group mt-2">
               <label for="roomInput">Room ID</label>
-              
+
               <div class="mt-2 w-100 home__input">
                 <input class="w-100 p-2" name="" id="roomInput" />
               </div>
@@ -37,7 +37,9 @@
               >
             </div>
 
-            <button class="btn btn-primary btn-block w-100 my-2">Joim Room</button>
+            <button class="btn btn-primary btn-block w-100 my-2">
+              Joim Room
+            </button>
           </div>
           <div class="col-12 col-lg-6 d-flex flex-column align-items-center">
             <img alt="Home Icon" class="w-50" src="../assets/HomeIcon.png" />
@@ -53,6 +55,7 @@
                       align-items-center
                       home__create-img
                     "
+                    @click="createVoteRoom"
                   >
                     <img alt="Vote Room" src="../assets/vote.png" />
                   </div>
@@ -84,18 +87,30 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import router from "@/router/index";
+import { defineComponent } from "vue";
 
-@Options({})
-export default class HomeView extends Vue {}
+export default defineComponent({
+  name: "HomeView",
+  methods: {
+    createVoteRoom() {
+      router.push({
+        name: "vote-room",
+        params: {
+          roomId: 123,
+        },
+      });
+    },
+  },
+});
 </script>
 
 <style lang="scss">
 .home {
-  background-color: $color-home-bg;
+  background-color: $color-bg-home;
 
   &__card {
-    background-color: $color-white;
+    background-color: $color-bg-card;
     border-radius: $radius;
     box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
   }
@@ -117,6 +132,7 @@ export default class HomeView extends Vue {}
     input {
       outline: none;
       border: none;
+      border-radius: $radius;
 
       &:focus {
         border: none;
@@ -127,7 +143,8 @@ export default class HomeView extends Vue {}
 
   &__input,
   &__create {
-    border: 3px solid $color-home-bg;
+    border: 3px solid $color-bg-card;
+    background-color: $color-white;
     border-radius: $radius;
     cursor: pointer;
 
